@@ -1,0 +1,6 @@
+src/banco/__pycache__
+src/banco/repositories/__pycache__
+src/controllers/__pycache__
+src/enums/__pycache__
+src/model/__pycache__
+src/recognizer/__pycache__
