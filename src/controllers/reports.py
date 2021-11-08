@@ -3,7 +3,7 @@ projectPath = os.path.abspath('main.py').replace('\main.py', '')
 import sys
 sys.path.append(projectPath)
 
-from enums.AgroToxicoHotEnum import AGROTOX_ENUM
+from src.enums.AgroToxicoHotEnum import AGROTOX_ENUM
 from src.model.FuncionarioDomModel import FuncionarioDomModel
 from src.model.ReportHotModel import ReportHotModel
 from src.banco.repositories.ReportHotRepository import ReportRepository
@@ -35,15 +35,15 @@ class ReportController():
         print('...')
         selectedValue = input('[INPUT] --- Selecionar valor: ')
 
-        if(selectedValue == 0):
+        if(int(selectedValue) == 0):
             self.listReports()
-        elif(selectedValue == 1):
-            self.cadastroReport(func.getIdNivel())
-        elif(selectedValue == 2):
+        elif(int(selectedValue) == 1):
+            self.cadastroReport()
+        elif(int(selectedValue) == 2):
             self.gerarRelatorio(func.getIdNivel())
-        elif(selectedValue == 3):
+        elif(int(selectedValue) == 3):
             self.gerarRelatorioMassivo(func.getIdNivel(), selectedValue)
-        elif(selectedValue == 4):
+        elif(int(selectedValue) == 4):
             self.gerarRelatorioMassivo(func.getIdNivel(), selectedValue)
         else:
             exit
@@ -58,13 +58,21 @@ class ReportController():
 
         for report in listReports:
             report:ReportHotModel
-            print('[REPORT] --- ID REPORT: {} | NOME EMPRESA: {} | NOME AGROTOX: {}'.format(report.getId(),
+            print('[REPORT] --- ID REPORT: [{}] | NOME EMPRESA: [{}] | NOME AGROTOX: [{}]'.format(report.getId(),
                                                                                             report.getNomeEmpresa(),
                                                                                             report.getNomeAgro()))
 
         print('[INFO] --- Todos reports listados.')
         print('...')
-        self.getReportAction()
+        print('[INFO] --- Selecione [1] para voltar')
+        print('[INFO] --- Selecione outro botão para sair do sistema')
+        selectedValue = input('[INPUT] --- Selecione: ')
+        
+        if(int(selectedValue) == 1):
+            self.getReportAction(self._func)
+        else:
+            print('[INFO] --- Fechado sistema')
+            exit
 
     def cadastroReport(self, ):
         nivel = self._func.getIdNivel()
@@ -78,6 +86,7 @@ class ReportController():
         endereco = input('[INPUT] --- Endereço do local afetado: ')
         dono = input('[INPUT] --- Nome do dono da empresa: ')
         gravidade = int(input('[INPUT] --- Gravidade: '))
+        nome_agro = input('[INPUT] --- Nome do AgroToxico: ')
         tipo_dano = input('[INPUT] --- Tipo de dano: ')
         tipo_agro = input('[INPUT] --- Tipo de agro: ')
         qt_agro = int(input('[INPUT] --- Quantidade agrotóxico'))
@@ -89,6 +98,7 @@ class ReportController():
         report.setEndereco(endereco)
         report.setDonoEmpresa(dono)
         report.setGravidade(gravidade)
+        report.setNomeAgro(nome_agro)
         report.setTipoDano(tipo_dano)
         report.setTipoAgro(tipo_agro)
         report.setQtdAgro(qt_agro)

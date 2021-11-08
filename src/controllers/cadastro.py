@@ -12,6 +12,9 @@ from src.controllers.reports import ReportController
 
 class Cadastro():
     
+    def testeAction(self, ):
+        print(FUNCIONARIO_ENUM.CPF.value)
+
     def __init__(self, ):
         self._repository = FuncionarioRepository()
         self._captura = Captura()

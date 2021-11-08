@@ -11,16 +11,17 @@ from src.recognizer.regonizer import Recognizer
 from src.controllers.reports import ReportController
 
 class Login:
+    
     def __init__(self, ):
         self._repository = repository()
         self._cpfList = []
         self._cadastro = Cadastro()
         self._recognizer = Recognizer()
         self._reportController = ReportController()
-        listFunc = repository.findAll()        
+        listFunc = self._repository.findAll()        
         
         for func in listFunc:
-            self._cpfList.insert(func.getCpf)
+            self._cpfList.append(func.getCpf())
 
     # -> Realiza a ção do login
     def loginAction(self, ):
@@ -32,10 +33,11 @@ class Login:
         
         if(cpf in self._cpfList):
             
-            func:FuncionarioDomModel = repository.findByCampo(FUNCIONARIO_ENUM.CPF.value, cpf)
+            func:FuncionarioDomModel = self._repository.findByCampo(FUNCIONARIO_ENUM.CPF.value, cpf)
             print('[SISTEMA] --- Iniciado reconhecimento no funcionário: ' + func.getNome())
             isAutenticado, confianca = self._recognizer.getAutenticacao(func = func)
-
+            #isAutenticado, confianca = True, 0
+             
             if(isAutenticado == True):
                 print('[SISTEMA] --- Bem vindo {}!'.format(func.getNome))
                 print('[SISTEMA] --- Usuário autenticado com uma confianca de:  {}'.format(str(confianca)))

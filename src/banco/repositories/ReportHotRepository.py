@@ -22,6 +22,7 @@ class ReportRepository():
     campo_tipo_dano = REPORT_ENUM.TIPO_DANO.value
     campo_tipo_agro = REPORT_ENUM.TIPO_AGRO.value
     campo_qt_agro = REPORT_ENUM.QT_AGRO.value
+    campo_nome_agro = REPORT_ENUM.NOME_AGRO.value
 
     def validateNoneValue(self, campo):
         try:
@@ -70,30 +71,31 @@ class ReportRepository():
         query = 'SELECT * FROM TAPS_HOT_REPORT'
         self._cursor.execute(query)
 
-        records = self._cursor.fetchAll()
+        records = self._cursor.fetchall()
         funcList = []
 
         for row in records:
             funcRow = self.mapper(row)
-            funcList.insert(funcRow)
+            funcList.append(funcRow)
 
         return funcList
 
     def save(self, report:ReportHotModel):
         
-        queryInsert = 'INSERT INTO TAPS_HOT_REPORT( {}, {}, {}, {}, {}, {}, {}) '.format(
+        queryInsert = 'INSERT INTO TAPS_HOT_REPORT( {}, {}, {}, {}, {}, {}, {}, {}) '.format(
             self.campo_nome_empre, self.campo_numero_empre, self.campo_endereco, self.campo_dono, self.campo_gravidade, self.campo_tipo_dano,
-            self.campo_tipo_agro, self.campo_qt_agro
+            self.campo_tipo_agro, self.campo_qt_agro, self.campo_nome_agro
         )
 
-        value_nome = self.validateNoneValue(report.getNomeEmpresa)
+        value_nome = self.validateNoneValue(report.getNomeEmpresa())
         value_numero_empre = self.validateNoneValue(report.getNumEmpresa())
-        value_endereco = self.validateNoneValue(report.getEndereco)
-        value_dono = self.validateNoneValue(report.getDonoEmpresa)
+        value_endereco = self.validateNoneValue(report.getEndereco())
+        value_dono = self.validateNoneValue(report.getDonoEmpresa())
         value_gravidade = self.validateNoneValue(report.getGravidade())
         value_tipo_dano = self.validateNoneValue(report.getTipoDano())
         value_tipo_agro = self.validateNoneValue(report.getTipoAgro())
         value_qt_agro = self.validateNoneValue(report.getQtdAgro())
+        value_nome_agro = self.validateNoneValue(report.getNomeAgro())
 
         queryValue = 'VALUES ("{}, "{}", "{}", "{}", "{}", "{}", "{}")'.format(
             value_nome, value_numero_empre, value_endereco, value_dono, value_gravidade, value_tipo_dano, value_tipo_agro, value_qt_agro

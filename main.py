@@ -1,14 +1,9 @@
 from src.controllers.cadastro import Cadastro
 from src.controllers.login import Login 
 
-def teste():
-    cadastro = Cadastro()
-
-    cadastro.testeAction()
-
 def main():   
     cadastro = Cadastro()
-    login = Login
+    login = Login()
     
     def spaces(count, char):
         for x in range(0, int(count)):

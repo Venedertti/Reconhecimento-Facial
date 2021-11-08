@@ -68,12 +68,12 @@ class FuncionarioRepository:
         query = 'SELECT * FROM TAPS_DOM_FUNC'
         self._cursor.execute(query)
         
-        records = self._cursor.fetchAll()
+        records = self._cursor.fetchall()
         funcList = []
 
         for row in records:
             funcRow = self.mapper(row)
-            funcList.insert(funcRow)
+            funcList.append(funcRow)
 
         return funcList
 
