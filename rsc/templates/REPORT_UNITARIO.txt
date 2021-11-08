@@ -1,0 +1,24 @@
+==================================
+[Agrosafe] - Relatório: {ID_RELATÓRIO}
+Gerado por: {FUNC_NOME}
+==================================
+...
+[INFO] ---> Gerais:
+=Nome empresa: {NOME_EMPRE}
+=Numero empresa: {NUMERO_EMPRE}
+=Local afetado: {ENDERECO}
+=Dono da empresa: {DONO_EMPRESA}
+...
+[INFO] ---> Agrotóxico:
+=Nome agrotóxio: {NOME_AGRO}
+=Tipo agrotóxico: {CD_AGRO}
+=Descrição do agrotóxico: {DS_AGRO}
+=Efeito oral: {EFEITO_ORAL}
+=Efeito dermico: {EFEITO_DERMICO}
+=Efeito ao inalar: {EFEITO_INALAR}
+=Quantidade de agrotóxico: {QT_AGRO}
+...
+[INFO] ---> Impacto
+=Tipo de dano: {TIPO_DANO}
+=Gravidade: {GRAVIDADE}
+==================================

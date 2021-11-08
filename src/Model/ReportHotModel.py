@@ -2,19 +2,19 @@
 # -> TAPS_HOT_REPORT
 
 class  ReportHotModel():
-    _id         : int
-    _empre_nome : str
-    _empre_num  : str
-    _endereco   : str
-    _empre_dono : str
-    _gravidade  : int
-    _tipo_dano  : str
-    _tipo_agro  : str
-    _qtd_agro   : int
-
-    def __init__(self, id):
-        self._id = id
-
+    
+    def __init__(self, ):
+        self._id: int = None
+        self._empre_nome: str = None
+        self._empre_num : str = None
+        self._endereco  : str = None
+        self._empre_dono : str = None
+        self._gravidade : int = None
+        self._tipo_dano : str = None
+        self._tipo_agro : int = None
+        self._qtd_agro : int = None
+        self._nome_agro : str = None
+    
     def getId(self, ):
         return self._id
     
@@ -68,4 +68,10 @@ class  ReportHotModel():
 
     def setQtdAgro(self, qtdAgro):
         self._qtd_agro = qtdAgro
+    
+    def getNomeAgro(self, ):
+        return self._nome_agro
+    
+    def setNomeAgro(self, nome_agro):
+        self._nome_agro = nome_agro
     

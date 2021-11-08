@@ -1,0 +1,9 @@
+from enum import Enum
+
+class AGROTOX_ENUM(Enum):
+    ID_AGRO 		= 'CD_AGRO'
+    CATEGORIA 		= 'CATEGORIA'
+    DESC_AGRO 		= 'DS_AGRO'
+    EFEITO_ORAL		= 'EFEITO_ORAL'
+    EFEITO_DERM 	= 'EFEITO_DERMICO'
+    EFEITO_INALAR	= 'EFEITO_INALAR'

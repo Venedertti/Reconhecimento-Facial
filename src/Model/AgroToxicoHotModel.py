@@ -2,12 +2,15 @@
 # -> TAPS_DOM_AGRO
 
 class AgroToxicoModel():
-    _id             : int
-    _categoria      : str
-    _descricao      : str
-    _efeito_oral    : str
-    _efeito_dermic  : str
-    _efeito_inalar  : str
+  
+    def __init__(self,):
+        self._id:int = None
+        self._categoria: str = None
+        self._descricao: str = None
+        self._efeito_oral: str = None
+        self._efeito_dermic: str = None
+        self._efeito_inalar: str = None
+        self._nome_agro: str = None
 
     def __init__(self, id):
         self.id = id
@@ -47,4 +50,5 @@ class AgroToxicoModel():
     
     def setEfeitoInalar(self, efeito_inalar):
         self._efeito_inalar = efeito_inalar
+
     

@@ -1,18 +1,16 @@
 #Objeto do Funcionario
 # -> TAPS_DOM_FUNC
 
-class FuncionarioDomModel():
-    _id         : str
-    _cpf        : str
-    _nome       : str
-    _numero     : str
-    _email      : str
-    _cargo      : str
-    _id_nivel   : int
-    _identific  : str
+class FuncionarioDomModel():    
 
-    def __init__(self, id):
-        self._id = id
+    def __init__(self, ):
+        self._id:str = None
+        self._cpf:str = None
+        self._nome:str = None
+        self._numero:str = None
+        self._email:str = None
+        self._cargo:str = None
+        self._id_nivel:int = None
 
     def getId(self, ):
         return self._id
@@ -56,8 +54,3 @@ class FuncionarioDomModel():
     def setIdNivel(self, idNivel):
         self._id_nivel = idNivel
     
-    def getIdentific(self, ):
-        return self._identific
-    
-    def setIdentific(self, identific):
-        self._identific = identific

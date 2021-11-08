@@ -1,0 +1,26 @@
+==================================
+[Agrosafe] - Relatório Massivo
+Filtro: {FILTRO}
+Gerado por: {FUNC_NOME}
+==================================
+[INFO] ---> Relatório: {ID_RELATÓRIO}
+...
+[INFO] ---> Gerais:
+=Nome da empresa: {NOME_EMPRE}
+=Numero daempresa: {NUMERO_EMPRE}
+=Local afetado: {ENDERECO}
+=Dono da empresa: {DONO_EMPRESA}
+...
+[INFO] ---> Agrotóxico:
+=Nome do agrotóxio: {NOME_AGRO}
+=Tipo do agrotóxico: {CD_AGRO}
+=Descrição do agrotóxico: {DS_AGRO}
+=Efeito oral: {EFEITO_ORAL}
+=Efeito dermico: {EFEITO_DERMICO}
+=Efeito ao inalar: {EFEITO_INALAR}
+=Quantidade de agrotóxico: {QT_AGRO}
+...
+[INFO] ---> Impacto
+=Tipo de dano: {TIPO_DANO}
+=Gravidade: {GRAVIDADE}
+==================================
