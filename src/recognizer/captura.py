@@ -25,7 +25,7 @@ class Captura:
                 if (cv.waitKey(1) & 0xFF == ord('q')):
                     
                     imagemFace = cv.resize(imagemCinza[y: y + a, x: x + l], (self.largura, self.altura))
-                    imgPath = 'fotos/pessoa.' + str(id) + '.' + str(self.amostra) + '.jpg'
+                    imgPath = 'rsc/fotos/pessoa.' + str(id) + '.' + str(self.amostra) + '.jpg'
                     
                     cv.imwrite(imgPath, imagemFace)
                     

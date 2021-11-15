@@ -36,10 +36,9 @@ class Login:
             func:FuncionarioDomModel = self._repository.findByCampo(FUNCIONARIO_ENUM.CPF.value, cpf)
             print('[SISTEMA] --- Iniciado reconhecimento no funcionário: ' + func.getNome())
             isAutenticado, confianca = self._recognizer.getAutenticacao(func = func)
-            #isAutenticado, confianca = True, 0
              
             if(isAutenticado == True):
-                print('[SISTEMA] --- Bem vindo {}!'.format(func.getNome))
+                print('[SISTEMA] --- Bem vindo {}!'.format(func.getNome()))
                 print('[SISTEMA] --- Usuário autenticado com uma confianca de:  {}'.format(str(confianca)))
                 
                 # -> Action de reports
@@ -59,7 +58,7 @@ class Login:
                             print('[SISTEMA] --- Bem vindo {}!'.format(func.getNome))
                             print('[SISTEMA] --- Usuário autenticado com uma confianca de:  {}'.format(str(confianca)))
                     
-                            # -: Action de Reports
+                            # -> Action de Reports
                             self._reportController.getReportAction(func)
                         
                     elif(int(selectValue) == 2):

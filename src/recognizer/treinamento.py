@@ -13,8 +13,8 @@ class Treinamento():
     def teste(self,):
         print('ok')
 
-    def getImagemComId(self, id):
-        paths = [os.path.join('fotos', f) for f in os.listdir('fotos')]
+    def getImagemComId(self, ):
+        paths = [os.path.join('rsc/fotos', f) for f in os.listdir('rsc/fotos')]
         faces = []
         ids = []
 
@@ -27,12 +27,11 @@ class Treinamento():
         return faces, np.array(ids)
 
     # -> Realiza o treinamento do Algoritimo: FisherFaces 
-    def treinarFisherFace(self, id):
-        faces, ids = self.getImagemComId(id)
+    def treinarFisherFace(self, ):
+        faces, ids = self.getImagemComId()
         print('[SISTEMA] --- Iniciando treinamento de algiritimo: [FisherFace]...')
         self.fisherFace.train(faces, ids) 
         self.fisherFace.write('rsc/classificadorFisher.yml')
         print('[SISTEMA] --- Finalizado treinamento de algiritimo: [FisherFace]')
 
-    
-    
+

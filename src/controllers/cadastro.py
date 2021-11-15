@@ -52,13 +52,12 @@ class Cadastro():
         # -> Necessário realizar consulta pois o ID é gerado pelo banco
         savedModel:FuncionarioDomModel = self._repository.findByCampo(FUNCIONARIO_ENUM.CPF.value, cpf)
 
-        print(savedModel.getId())
-        # self._captura.capturaCadastro(savedModel.getId)
-        # print('[INFO] --- Captura de faces concluida!')
+        self._captura.capturaCadastro(savedModel.getId())
+        print('[INFO] --- Captura de faces concluida!')
 
-        # print('[INFO] --- Iniciando treinamento de faces.')
-        # self._treinamento.treinarFisherFace(savedModel.getId())
-        # print('[INFO] --- Treinamento de faces concluida!')
+        print('[INFO] --- Iniciando treinamento de faces.')
+        self._treinamento.treinarFisherFace()
+        print('[INFO] --- Treinamento de faces concluida!')
         
         print("[SISTEMA] --- Abrindo tela de Reports... ")
         self._reportController.getReportAction(savedModel)

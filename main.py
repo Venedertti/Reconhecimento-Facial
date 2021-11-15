@@ -1,5 +1,6 @@
 from src.controllers.cadastro import Cadastro
 from src.controllers.login import Login 
+from src.recognizer.treinamento import Treinamento
 
 def main():   
     cadastro = Cadastro()
@@ -35,10 +36,11 @@ def main():
     else:
         print('[ERRO] --- Valor inválido: ' + str(valueSelected))
         exit
-    
+
 main()
 
-
+# tre = Treinamento()
+# tre.treinarFisherFace()
 
     
 
