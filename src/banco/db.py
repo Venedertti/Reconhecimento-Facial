@@ -5,8 +5,8 @@ class Banco:
     host="localhost",
     port="3306",
     database="aps_agrosafe",
-    user="root",
-    password="Br123",
+    user="python",
+    password="123456",
     auth_plugin='mysql_native_password'
   )
 
